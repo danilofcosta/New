@@ -12,6 +12,9 @@ body {
 
 #app {
     text-align: center;
+    background-color: aliceblue;
+    border-radius: 20%;
+    
 }
 
 #mainButton {
@@ -27,7 +30,7 @@ div.container {
     color: rgb(255, 0, 0);
     border-radius: 5px;
     background-image: url('https://i.pinimg.com/564x/1c/64/7c/1c647cdd14cecf11191f860a62252a61.jpg');
-    
+    display:grid;
     background-size: cover;
     background-position: center;
     padding: 20px; /* Added padding for spacing within the container */
@@ -35,6 +38,15 @@ div.container {
 
 div.container:hover {
     color: black; /* Changes the text color to black */
-    transform: scale(1.1); /* Increases the size by 10% */
+    transform: scale(1.5); /* Increases the size by 10% */
+    transition: transform 0.30s ease, color 0.3s ease; /* Smooth transition */
+    
+}
+
+div.userInfo{background-color: aliceblue;}
+
+div.userInfo:hover {
+    color: rgb(247, 0, 0); /* Changes the text color to black */
+    transform: scale(1.5); /* Increases the size by 10% */
     transition: transform 0.30s ease, color 0.3s ease; /* Smooth transition */
 }
