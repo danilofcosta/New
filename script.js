@@ -1,18 +1,18 @@
-window.Telegram.WebApp.onEvent('themeChanged', function() {
-    document.body.style.backgroundColor = window.Telegram.WebApp.colorScheme.bg_color;
-});
+window.onload = function() {
+    // Notifica que o Mini App está pronto
+    Telegram.WebApp.ready();
 
-window.Telegram.WebApp.ready(); // Prepara o WebApp para interações
+    // Exibe informações do Telegram Web App
+    console.log("Init Data:", Telegram.WebApp.initData);
+    console.log("Color Scheme:", Telegram.WebApp.colorScheme);
 
-// Obter informações do usuário
-const userInfo = window.Telegram.WebApp.initDataUnsafe.user;
-document.getElementById('userInfo').innerHTML = `
-    <p>Nome: ${userInfo.first_name} ${userInfo.last_name || ''}</p>
-    <p>Username: ${userInfo.username}</p>
-`;
+    // Manipula o botão principal
+    const mainButton = document.getElementById('mainButton');
+    mainButton.style.backgroundColor = Telegram.WebApp.themeParams.bg_color;
 
-// Enviar mensagem quando o botão for clicado
-document.getElementById('myButton').onclick = function() {
-    const message = "Olá, este é um teste do meu WebApp!";
-    window.Telegram.WebApp.sendMessage(userInfo.id, message);
+    mainButton.onclick = function() {
+        // Envia dados para o bot quando o botão é clicado
+        const dataToSend = "Hello from WebApp!";
+        Telegram.WebApp.sendData(dataToSend);
+    };
 };
