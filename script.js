@@ -5,14 +5,12 @@ window.Telegram.WebApp.onEvent('themeChanged', function() {
 window.Telegram.WebApp.ready(); // Prepara o WebApp para interações
 
 // Obter informações do usuário
-const userInfo = window.Telegram.WebApp.initDataUnsafe.user;
-let w =window.Telegram.WebApp.initDataUnsafe.receiver
-console.log(w)
+const userInfo = window.Telegram.WebApp.initDataUnsafe.user
 
 document.getElementById('userInfo').innerHTML = `
     <p>Nome: ${userInfo.first_name} ${userInfo.last_name || ''}</p>
     <p>Username: ${userInfo.username}</p>
-    <p>chat: ${w.first_name}}</p>
+    <p>chat: ${userInfo.photo_url}}</p>
     
     
 `;
