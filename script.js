@@ -11,7 +11,6 @@ window.onload = function() {
         <p>Nome: ${userInfo.first_name} ${userInfo.last_name || ''}</p>
         <p>Username: ${userInfo.username || 'Não disponível'}</p>
         <p>Chat ID: ${userInfo.id}</p>
-        <p>Chat ID: ${chat.first_name}</p>
         <img src="${userInfo.photo_url || ''}" alt="Foto do usuário" style="width: 100px; height: auto;">
     `;
 

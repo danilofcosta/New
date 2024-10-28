@@ -5,6 +5,9 @@ body {
     align-items: center;
     height: 100vh;
     background-color: var(--tg-background-color, white);
+    background-image: url('https://i.pinimg.com/564x/4a/26/d6/4a26d6c3f83b9bc5ad5ed4dcd5167fee.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 #app {
@@ -17,4 +20,21 @@ body {
     border: none;
     cursor: pointer;
     color: white;
+    background-color: #007BFF; /* Adding a button background color */
+}
+
+div.container {
+    color: rgb(255, 0, 0);
+    border-radius: 5px;
+    background-image: url('https://i.pinimg.com/564x/1c/64/7c/1c647cdd14cecf11191f860a62252a61.jpg');
+    
+    background-size: cover;
+    background-position: center;
+    padding: 20px; /* Added padding for spacing within the container */
+}
+
+div.container:hover {
+    color: black; /* Changes the text color to black */
+    transform: scale(1.1); /* Increases the size by 10% */
+    transition: transform 0.30s ease, color 0.3s ease; /* Smooth transition */
 }
