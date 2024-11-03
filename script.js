@@ -11,7 +11,9 @@ window.onload = function() {
         <p>Nome: ${userInfo.first_name} ${userInfo.last_name || ''}</p>
         <p>Username: ${userInfo.username || 'Não disponível'}</p>
         <p>Chat ID: ${userInfo.id}</p>
-        <img src="${userInfo.photo_url || ''}" alt="Foto do usuário" style="width: 100px; height: auto;">
+        <p>Chat ID: ${userInfo.added_to_attachment_menu}</p>
+        
+        <img src="${userInfo.photo_url.value || 'https://i.pinimg.com/564x/3e/aa/fc/3eaafcf19e9abd21a2e530e932c7f6f5.jpg'}" alt="Foto do usuário" style="width: 100px; height: auto;">
     `;
 
     // Manipula o botão principal
