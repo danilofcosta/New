@@ -2,6 +2,9 @@ window.onload = function() {
     // Notifica que o Mini App está pronto
     Telegram.WebApp.ready();
 
+    // Exibe o conteúdo completo de initDataUnsafe no console
+    console.log(Telegram.WebApp.initDataUnsafe);
+
     // Obtém informações do usuário a partir de initDataUnsafe
     const userInfo = Telegram.WebApp.initDataUnsafe.user || {};  // Se userInfo não existir, define como um objeto vazio.
 
