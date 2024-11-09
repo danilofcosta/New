@@ -1,53 +1,53 @@
-// Access the Telegram WebApp API
+// Acessa a API do Telegram WebApp
 const telegram = window.Telegram.WebApp;
 
-// Define an object to hold all the data we want to display
-const data = {
-    version: telegram.version,
-    platform: telegram.platform,
-    colorScheme: telegram.colorScheme,
-    themeParams: telegram.themeParams,
-    isExpanded: telegram.isExpanded,
-    viewportHeight: telegram.viewportHeight,
-    viewportStableHeight: telegram.viewportStableHeight,
-    headerColor: telegram.headerColor,
-    backgroundColor: telegram.backgroundColor,
-    bottomBarColor: telegram.bottomBarColor,
-    isClosingConfirmationEnabled: telegram.isClosingConfirmationEnabled,
-    isVerticalSwipesEnabled: telegram.isVerticalSwipesEnabled,
+// Define um objeto para armazenar todos os dados que queremos exibir
+const dados = {
+    versao: telegram.version,
+    plataforma: telegram.platform,
+    esquemaDeCores: telegram.colorScheme,
+    parametrosDoTema: telegram.themeParams,
+    estaExpandido: telegram.isExpanded,
+    alturaViewport: telegram.viewportHeight,
+    alturaEstavelViewport: telegram.viewportStableHeight,
+    corCabecalho: telegram.headerColor,
+    corFundo: telegram.backgroundColor,
+    corBarraInferior: telegram.bottomBarColor,
+    confirmacaoFecharHabilitada: telegram.isClosingConfirmationEnabled,
+    swipesVerticaisHabilitados: telegram.isVerticalSwipesEnabled,
 };
 
-// Function to display the information on the webpage
-function displayTelegramData(data) {
-    const container = document.getElementById('telegramData');
+// Função para exibir as informações na página
+function exibirDadosTelegram(dados) {
+    const container = document.getElementById('dadosTelegram');
     container.innerHTML = `
-        <p><strong>Version:</strong> ${data.version}</p>
-        <p><strong>Platform:</strong> ${data.platform}</p>
-        <p><strong>Color Scheme:</strong> ${data.colorScheme}</p>
-        <p><strong>Theme Parameters:</strong> ${JSON.stringify(data.themeParams)}</p>
-        <p><strong>Is Expanded:</strong> ${data.isExpanded}</p>
-        <p><strong>Viewport Height:</strong> ${data.viewportHeight}</p>
-        <p><strong>Viewport Stable Height:</strong> ${data.viewportStableHeight}</p>
-        <p><strong>Header Color:</strong> ${data.headerColor}</p>
-        <p><strong>Background Color:</strong> ${data.backgroundColor}</p>
-        <p><strong>Bottom Bar Color:</strong> ${data.bottomBarColor}</p>
-        <p><strong>Closing Confirmation Enabled:</strong> ${data.isClosingConfirmationEnabled}</p>
-        <p><strong>Vertical Swipes Enabled:</strong> ${data.isVerticalSwipesEnabled}</p>
+        <p><strong>Versão:</strong> ${dados.versao}</p>
+        <p><strong>Plataforma:</strong> ${dados.plataforma}</p>
+        <p><strong>Esquema de Cores:</strong> ${dados.esquemaDeCores}</p>
+        <p><strong>Parâmetros do Tema:</strong> ${JSON.stringify(dados.parametrosDoTema)}</p>
+        <p><strong>Está Expandido:</strong> ${dados.estaExpandido}</p>
+        <p><strong>Altura do Viewport:</strong> ${dados.alturaViewport}</p>
+        <p><strong>Altura Estável do Viewport:</strong> ${dados.alturaEstavelViewport}</p>
+        <p><strong>Cor do Cabeçalho:</strong> ${dados.corCabecalho}</p>
+        <p><strong>Cor de Fundo:</strong> ${dados.corFundo}</p>
+        <p><strong>Cor da Barra Inferior:</strong> ${dados.corBarraInferior}</p>
+        <p><strong>Confirmação para Fechar Habilitada:</strong> ${dados.confirmacaoFecharHabilitada}</p>
+        <p><strong>Swipes Verticais Habilitados:</strong> ${dados.swipesVerticaisHabilitados}</p>
     `;
 }
 
-// Call the function to display the data
-displayTelegramData(data);
+// Chama a função para exibir os dados
+exibirDadosTelegram(dados);
 
-// Example of setting colors and expanding the app using available methods
-telegram.setHeaderColor('#FF5733'); // Sets the header color
-telegram.setBackgroundColor('#F0F0F0'); // Sets the background color
-telegram.setBottomBarColor('#333333'); // Sets the bottom bar color
-telegram.enableClosingConfirmation(); // Enables closing confirmation
+// Exemplo de configuração de cores e expansão do aplicativo usando os métodos disponíveis
+telegram.setHeaderColor('#FF5733'); // Define a cor do cabeçalho
+telegram.setBackgroundColor('#F0F0F0'); // Define a cor de fundo
+telegram.setBottomBarColor('#333333'); // Define a cor da barra inferior
+telegram.enableClosingConfirmation(); // Habilita a confirmação ao fechar
 
-// Listen to events, such as when viewport height changes
+// Ouve eventos, como quando a altura do viewport é alterada
 telegram.onEvent('viewportChanged', (isStateStable) => {
-    data.viewportHeight = telegram.viewportHeight;
-    data.viewportStableHeight = telegram.viewportStableHeight;
-    displayTelegramData(data); // Update display with new values
+    dados.alturaViewport = telegram.viewportHeight;
+    dados.alturaEstavelViewport = telegram.viewportStableHeight;
+    exibirDadosTelegram(dados); // Atualiza a exibição com novos valores
 });
