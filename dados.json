@@ -1,0 +1,96 @@
+[
+    {
+        "_id": 1,
+        "nome": "Sakura Haruno",
+        "anime": "naruto shippuden",
+        "categoria": "waifu",
+        "raridade": "5",
+        "proprietario": null,
+        "url": "https://i.pinimg.com/originals/ab/d2/b9/abd2b9abc3dc79ebc103e510b195085f.jpg",
+        "evento": "0",
+        "tipo": "photo"
+    },
+    {
+        "_id": 2,
+        "nome": "Mikasa Ackerman",
+        "anime": "attack on titan",
+        "categoria": "waifu",
+        "raridade": "4",
+        "proprietario": null,
+        "url": "https://i.pinimg.com/originals/c6/37/ed/c637ed427b9c6172757b6cd3efc6426b.jpg",
+        "evento": "0",
+        "tipo": "photo"
+    },
+    {
+        "_id": 3,
+        "nome": "Mikasa Ackerman",
+        "anime": "attack on titan",
+        "categoria": "waifu",
+        "raridade": "4",
+        "proprietario": null,
+        "url": "https://i.pinimg.com/564x/a0/2c/35/a02c35691123f353cb985c4d986ee4da.jpg",
+        "evento": "0",
+        "tipo": "photo",
+        "file_id": null
+    },
+    {
+        "_id": 4,
+        "nome": "Hinata Hyuga",
+        "anime": "naruto shippuden",
+        "categoria": "waifu",
+        "raridade": "4",
+        "proprietario": null,
+        "url": "https://i.pinimg.com/736x/de/32/37/de323784a187fe7c565ac52fece8885b.jpg",
+        "evento": "0",
+        "tipo": "photo",
+        "file_id": null
+    },
+    {
+        "_id": 5,
+        "nome": "hange zoe",
+        "anime": "attack on titan",
+        "categoria": "waifu",
+        "raridade": "5",
+        "proprietario": null,
+        "url": "https://i.pinimg.com/564x/1c/64/7c/1c647cdd14cecf11191f860a62252a61.jpg",
+        "evento": "0",
+        "tipo": "photo",
+        "file_id": null
+    },
+    {
+        "_id": 6,
+        "nome": "mikasa ackerman",
+        "anime": "attack on titan",
+        "categoria": "waifu",
+        "raridade": "3",
+        "proprietario": null,
+        "url": "https://i.pinimg.com/enabled_hi/564x/04/a7/9c/04a79c2f8fcf3c862eab8d40a303cccc.jpg",
+        "evento": "0",
+        "tipo": "photo",
+        "file_id": null
+    },
+    {
+        "_id": 7,
+        "nome": "mikasa ackerman",
+        "anime": "attack on titan",
+        "categoria": "waifu",
+        "raridade": "7",
+        "proprietario": null,
+        "url": "https://v1.pinimg.com/videos/mc/expMp4/56/f0/0f/56f00f16fbf3dd9909bf9023a00503f8_t1.mp4",
+        "evento": "0",
+        "tipo": "video",
+        "file_id": null
+    },
+    {
+        "_id": 8,
+        "nome": "nobara kugisaki",
+        "anime": "jujutsu kaisen",
+        "categoria": "waifu",
+        "raridade": "5",
+        "proprietario": null,
+        "url": "https://i.pinimg.com/736x/c6/c0/86/c6c08603b6d54114f9affe0a7d1d7610.jpg",
+        "evento": "0",
+        "tipo": "photo",
+        "file_id": null
+    }
+]
