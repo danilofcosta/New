@@ -1,7 +1,7 @@
 // Acessa a API do Telegram WebApp
 const telegramapi = window.Telegram.WebApp
 const user=telegramapi.initDataUnsafe.user
-const receiver=telegramapi.initDataUnsafe.receiver
+const receiver=telegramapi.initDataUnsafe
 
 
 // Seleciona o elemento <h1> dentro do <header>
