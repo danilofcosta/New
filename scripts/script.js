@@ -1,11 +1,6 @@
-
-
 const telegramapi = window.Telegram.WebApp
 const user=telegramapi.initDataUnsafe.user
-
-
 let url = "https://webapp-ten-mu.vercel.app/buscar?id="+String(user.id);
-
 fetch(url)
     .then(response => {
         // Verifique se a resposta foi bem-sucedida
