@@ -1,6 +1,7 @@
 // Acessa a API do Telegram WebApp
 const telegram = window.Telegram.WebApp;
-
+console.log(telegram.initDataUnsafe)
+let datas =telegram.initDataUnsafe
 // Define um objeto para armazenar todos os dados que queremos exibir
 const dados = {
     versao: telegram.version,
@@ -21,10 +22,10 @@ const dados = {
 function exibirDadosTelegram(dados) {
     const container = document.getElementById('dadosTelegram');
     container.innerHTML = `
-                <p><strong>ID do Usuário:</strong> ${datas.user.id}</p>
-            <p><strong>Nome:</strong> ${datas.user.first_name} ${datas.user.last_name || ''}</p>
-            <p><strong>Nome de Usuário:</strong> ${datas.user.username || 'Não disponível'}</p>
-            <p><strong>Idioma:</strong> ${datas.user.language_code || 'Não disponível'}</p>
+        <p><strong>ID do Usuário:</strong> ${datas.user.id}</p>
+        <p><strong>Nome:</strong> ${datas.user.first_name} ${datas.user.last_name || ''}</p>
+        <p><strong>Nome de Usuário:</strong> ${datas.user.username || 'Não disponível'}</p>
+        <p><strong>Idioma:</strong> ${datas.user.language_code || 'Não disponível'}</p>
         <p><strong>Versão:</strong> ${dados.versao}</p>
         <p><strong>Plataforma:</strong> ${dados.plataforma}</p>
         <p><strong>Esquema de Cores:</strong> ${dados.esquemaDeCores}</p>
