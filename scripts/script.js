@@ -1,7 +1,7 @@
 const telegramapi = window.Telegram.WebApp;
 const user = telegramapi.initDataUnsafe.user;
-const url = "https://webapp-ten-mu.vercel.app/buscar?id=" + String(user.id);
-// const url = "https://webapp-ten-mu.vercel.app/buscar?id=6874062454";
+// const url = "https://webapp-ten-mu.vercel.app/buscar?id=" + String(user.id);
+const url = "https://webapp-ten-mu.vercel.app/buscar?id=6874062454";
 
 async function fetchHaremData() {
     try {
@@ -18,9 +18,14 @@ async function fetchHaremData() {
         
         renderizarLista(waifus); // Call the render function with waifus data
 
-    } catch (error) {
-        console.error('Erro na requisição:', error); // Handle fetch errors
-    }
+} catch (error) {
+    console.log('Erro na requisição:', error); // Handle fetch errors
+    document.body.innerHTML = `                
+        <div id='error-message'>
+            <h1>Você não tem harem :D</h1>
+        </div>
+    `;
+}
 }
 
 function renderizarLista(dados) {
