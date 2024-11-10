@@ -1,44 +1,50 @@
-const telegramapi = window.Telegram.WebApp
-const user=telegramapi.initDataUnsafe.user
-let url = "https://webapp-ten-mu.vercel.app/buscar?id="+String(user.id);
-fetch(url)
-    .then(response => {
-        // Verifique se a resposta foi bem-sucedida
+const telegramapi = window.Telegram.WebApp;
+const user = telegramapi.initDataUnsafe.user;
+const url = "https://webapp-ten-mu.vercel.app/buscar?id=" + String(user.id);
+// const url = "https://webapp-ten-mu.vercel.app/buscar?id=6874062454";
+
+async function fetchHaremData() {
+    try {
+        const response = await fetch(url);
         if (!response.ok) {
             throw new Error('Erro na resposta da rede');
         }
-        return response.json();
+        const data = await response.json();
+        
+        // Process the data
+        const dadosHarem = data;
+        const husbando = dadosHarem.husbando;
+        const waifus = dadosHarem.waifus;
+        
+        renderizarLista(waifus); // Call the render function with waifus data
 
-         // Supondo que a resposta seja em formato JSON
-    })
-    .then(data => {
-        let dadosHarem =data
-        let husbando = dadosHarem.husbando
-        let waifus = dadosHarem.waifus
-        renderizarLista(waifus)
-        //console.log(data);  Aqui você pode processar os dados recebidos
-    })
-    .catch(error => {
-        console.error('Erro na requisição:', error); // Lida com erros de requisição
-    });
+    } catch (error) {
+        console.error('Erro na requisição:', error); // Handle fetch errors
+    }
+}
 
 function renderizarLista(dados) {
     const lista = dados.personagens;
     const fav = String(dados.fav);
-    console.log(dados)
-   
-    const getfav = lista.find(item => item._id ===fav );
-    
-    document.querySelector('.mikasa').style.backgroundImage = "url("+getfav.url+")";
-    //começo do for 
-    const listaItens = document.getElementById('base');
-    lista.forEach(item => {  
 
-        
+   
+    // Find the favorite character and set as background
+    const getfav = lista.find(item => item._id === fav);
+    if (getfav) {
+        document.querySelector('.mikasa').style.backgroundImage = "url(" + getfav.url + ")";
+    }
+
+    // Select the base container for the list
+    const listaItens = document.getElementById('base');
+    lista.forEach(item => { 
+        if (!item.url) { return;}
+        // Skip this iteration if item.url is missing or empty
+           
+        console.log(item) 
         const divItem = document.createElement('div');
         divItem.classList.add('item');
-
-        if (item.url.includes('.mp4')) {
+        // Check if the URL is a video or image
+        if (item.url.includes('.mp4') || item.tipo.includes('video')) {
             divItem.innerHTML = `
                 <div class="imagem">
                     <video id="conteudo" src="${item.url}" controls alt="video"></video>
@@ -48,18 +54,25 @@ function renderizarLista(dados) {
                     </div>
                 </div>
             `;
-        } else {
+        } 
+        else if  (item.tipo.includes('photo')) {
+        
             divItem.innerHTML = `
                 <div class="imagem">
                     <img id="conteudo" src="${item.url}" alt="foto">
                     <div class="legenda">
                         <h1>${item.nome}</h1>
                         <p>${item.anime}</p>
+                        <p>id: ${item._id}</p>
                     </div>
                 </div>
             `;
         }
 
+        // Append the created item to the base list
         listaItens.appendChild(divItem);
     });
 }
+
+// Call the async function to fetch and render data
+fetchHaremData();
