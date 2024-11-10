@@ -69,61 +69,54 @@ a:hover {
 .container {
     display: flex;
     flex-flow: row wrap; /* Faz com que os itens "quebrem" para a linha seguinte quando não houver espaço */
-    justify-content: space-around;
-    width: 95vw;
-    /* border: 5px solid black; */
-    align-items: center;
-    margin: auto;
-    margin-top: 10px;
-   
+    justify-content: space-between; /* Espalha os itens pelo ma
+  
+    max-width: 1200px; /* Define uma largura máxima */
+    margin: 10px;
 }
 
-
-
-.item{
+/* Estilo para cada item */
+.item {
+    width: 250px; /* Tamanho fixo dos itens */
+    position: relative;
     overflow: hidden;
     border-radius: 10px;
-
-  background-color: rgba(0, 255, 255, 0.104);
-    color: white;
-    text-align: center;
-    box-shadow: 2px 2px 70px rgba(0, 0, 0, 0.64);
     margin-bottom: 10px;
-    margin-left: 5px;
-    max-width: 200px;
+
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 }
-.item>.imagem >#conteudo{
-    width:100%;
+
+/* Estilo para a imagem */
+.item .imagem img {
+    width: 100%;
     height: auto;
     flex: auto;
     border-radius: 10px;
-    margin-bottom: -7px;
-    
-
-    
-
-    
-
-
+    transition: transform 0.3s ease;
 }
 
 /* Efeito de zoom na imagem ao passar o mouse */
-.item:hover{  box-shadow: 0px 0px 70px rgba(255, 255, 255, 0.962);
+.item:hover .imagem img {  box-shadow: 2px 2px 70px rgba(255, 255, 255, 0.676);
     transform: scale(1.05);
-    transition: 1s;
+    
+}
 
-  }
-
-  .legenda{display: none;
-
-  }
-
-.item:hover .legenda {
-  display: block;
+/* Estilo da legenda */
+.legenda {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background: rgb(0, 0, 0);
     color: white;
+    padding: 10px;
     text-align: center;
-    padding: 2px;
-    opacity: 1;
-    transition: 1s;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
+
+/* Mostrar a legenda ao passar o mouse */
+.item:hover .legenda {
+    opacity: 1;
+}
+

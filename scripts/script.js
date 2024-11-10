@@ -16,16 +16,29 @@ fetch('dados.json')  // Especifique o caminho correto do seu arquivo JSON
             // Cria a estrutura do item
             const divItem = document.createElement('div');
             divItem.classList.add('item');  // Adiciona a classe CSS para o estilo do item
-
-            divItem.innerHTML = `
-                <div class="imagem">
-                    <img src="${item.url}" alt="foto">
-                    <div class="legenda">
-                        <h1>${item.nome}</h1>
-                        <p>${item.anime}</p>
+            
+            // Verifica se o URL contém um arquivo .mp4
+            if (item.url.includes('.mp4')) {
+                divItem.innerHTML = `
+                    <div class="imagem">
+                        <video id="conteudo"  src="${item.url}" controls alt="video"></video>
+                        <div class="legenda">
+                            <h1>${item.nome}</h1>
+                            <p>${item.anime}</p>
+                        </div>
                     </div>
-                </div>
-            `;
+                `;
+            } else {
+                divItem.innerHTML = `
+                    <div class="imagem">
+                        <img id="conteudo"  src="${item.url}" alt="foto">
+                        <div class="legenda">
+                            <h1>${item.nome}</h1>
+                            <p>${item.anime}</p>
+                        </div>
+                    </div>
+                `;
+            }
       
             // Adiciona o novo item ao contêiner
             listaItens.appendChild(divItem);
@@ -35,5 +48,3 @@ fetch('dados.json')  // Especifique o caminho correto do seu arquivo JSON
         // Trata qualquer erro que ocorrer durante o processo
         console.error('Erro ao ler o arquivo JSON:', error);
     });
-
-
