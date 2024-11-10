@@ -92,5 +92,17 @@
         "evento": "0",
         "tipo": "photo",
         "file_id": null
+    },
+        {
+        "_id": 77,
+        "nome": "nobara kugisaki",
+        "anime": "jujutsu kaisen",
+        "categoria": "waifu",
+        "raridade": "5",
+        "proprietario": null,
+        "url": "https://v1.pinimg.com/videos/mc/720p/13/4b/a4/134ba4177a34959080184d75450ed203.mp4",
+        "evento": "0",
+        "tipo": "photo",
+        "file_id": null
     }
 ]

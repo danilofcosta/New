@@ -25,17 +25,15 @@
   }
 
   .item {
-    margin-left: 2px;
+     max-width: 150px;
   }
 
   .container {
+    width: 95vw;
     margin: auto;
-    padding: 5px;
   }
 
-  .legenda {
-    opacity: 1;
-  }
+
 
   body {
     font-size: 10pt;
