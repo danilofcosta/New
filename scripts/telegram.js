@@ -2,6 +2,7 @@
 const telegramapi = window.Telegram.WebApp
 const user=telegramapi.initDataUnsafe.user
 const receiver=telegramapi
+console.log(receiver)
 
 
 // Seleciona o elemento <h1> dentro do <header>
