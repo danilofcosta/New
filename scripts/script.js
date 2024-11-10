@@ -1,6 +1,7 @@
 
 
-
+const telegramapi = window.Telegram.WebApp
+const user=telegramapi.initDataUnsafe.user
 
 
 let url = "https://webapp-ten-mu.vercel.app/buscar?id="+String(user.id);
