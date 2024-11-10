@@ -1,7 +1,9 @@
 // Acessa a API do Telegram WebApp
 const telegram = window.Telegram.WebApp;
-console.log(telegram.initDataUnsafe)
-let datas =telegram.initDataUnsafe
+
+
+console.log(telegram.initDataUnsafe);
+let datas =telegram.initDataUnsafe;
 // Define um objeto para armazenar todos os dados que queremos exibir
 const dados = {
     versao: telegram.version,
