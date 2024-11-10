@@ -1,50 +1,69 @@
-// Usando fetch para obter o arquivo JSON
-fetch('dados.json')  // Especifique o caminho correto do seu arquivo JSON
+
+
+
+
+
+let url = "https://webapp-ten-mu.vercel.app/buscar?id="+String(user.id);
+
+fetch(url)
     .then(response => {
-        // Verifica se a resposta foi bem-sucedida (status HTTP 200)
+        // Verifique se a resposta foi bem-sucedida
         if (!response.ok) {
-            throw new Error('Erro ao carregar o arquivo JSON');
+            throw new Error('Erro na resposta da rede');
         }
-        return response.json();  // Converte o corpo da resposta para um objeto JSON
+        return response.json();
+
+         // Supondo que a resposta seja em formato JSON
     })
     .then(data => {
-        // Obtém o elemento onde os itens serão adicionados
-        const listaItens = document.getElementById('base');
-
-        // Itera sobre os dados e cria um item para cada entrada
-        data.forEach(item => {
-            // Cria a estrutura do item
-            const divItem = document.createElement('div');
-            divItem.classList.add('item');  // Adiciona a classe CSS para o estilo do item
-            
-            // Verifica se o URL contém um arquivo .mp4
-            if (item.url.includes('.mp4')) {
-                divItem.innerHTML = `
-                    <div class="imagem">
-                        <video id="conteudo"  src="${item.url}" controls alt="video"></video>
-                        <div class="legenda">
-                            <h1>${item.nome}</h1>
-                            <p>${item.anime}</p>
-                        </div>
-                    </div>
-                `;
-            } else {
-                divItem.innerHTML = `
-                    <div class="imagem">
-                        <img id="conteudo"  src="${item.url}" alt="foto">
-                        <div class="legenda">
-                            <h1>${item.nome}</h1>
-                            <p>${item.anime}</p>
-                        </div>
-                    </div>
-                `;
-            }
-      
-            // Adiciona o novo item ao contêiner
-            listaItens.appendChild(divItem);
-        });
+        let dadosHarem =data
+        let husbando = dadosHarem.husbando
+        let waifus = dadosHarem.waifus
+        renderizarLista(waifus)
+        //console.log(data);  Aqui você pode processar os dados recebidos
     })
     .catch(error => {
-        // Trata qualquer erro que ocorrer durante o processo
-        console.error('Erro ao ler o arquivo JSON:', error);
+        console.error('Erro na requisição:', error); // Lida com erros de requisição
     });
+
+function renderizarLista(dados) {
+    const lista = dados.personagens;
+    const fav = String(dados.fav);
+    console.log(dados)
+   
+    const getfav = lista.find(item => item._id ===fav );
+    
+    document.querySelector('.mikasa').style.backgroundImage = "url("+getfav.url+")";
+    //começo do for 
+    const listaItens = document.getElementById('base');
+    lista.forEach(item => {  
+
+        
+        const divItem = document.createElement('div');
+        divItem.classList.add('item');
+
+        if (item.url.includes('.mp4')) {
+            divItem.innerHTML = `
+                <div class="imagem">
+                    <video id="conteudo" src="${item.url}" controls alt="video"></video>
+                    <div class="legenda">
+                        <h1>${item.nome}</h1>
+                        <p>${item.anime}</p>
+                    </div>
+                </div>
+            `;
+        } else {
+            divItem.innerHTML = `
+                <div class="imagem">
+                    <img id="conteudo" src="${item.url}" alt="foto">
+                    <div class="legenda">
+                        <h1>${item.nome}</h1>
+                        <p>${item.anime}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        listaItens.appendChild(divItem);
+    });
+}

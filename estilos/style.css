@@ -3,13 +3,17 @@
 .content_mikasa {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .mikasa {
   height: 200px;
   width: 200px;
   background-image: url(https://i.pinimg.com/736x/0a/63/8d/0a638deafdc07ae980ca9887d84edee2.jpg);
   border-radius: 50%;
+  background-position: center;
   background-size: cover;
+  
+  
 }
 .mikasa:hover {
   transform: scale(1.1);
